@@ -1,5 +1,8 @@
 <?php
 
+use App\Role;
+use App\User;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,3 +21,21 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Route::get('create', function () {
+
+//     // Role::create(['name' => 'administrator']);
+//     // Role::create(['name' => 'author']);
+//     // Role::create(['name' => 'subscriber']);
+//     // Role::create(['name' => 'guest']);
+// });
+
+Route::get('admin', function () {
+
+    return view('admin.index');
+
+});
+
+Route::resource('admin/users', 'AdminUserController');
+
+
