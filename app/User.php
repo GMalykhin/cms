@@ -48,4 +48,24 @@ class User extends Authenticatable
     {
         return $this->belongsTo('App\Image', 'user_photo_id');
     }
+
+    // public function setPasswordAtrribute($password)   #Accessor hash password if does`t change by user#
+    // {
+    //     if(!empty('password')){
+
+    //         $this->attribute['password'] = bcrypt($password);
+
+    //     }
+    // }
+
+    public function isAdmin(){
+
+        if($this->role->name == 'administrator'){
+
+            return true;
+
+        }
+
+        return false;
+    }
 }
